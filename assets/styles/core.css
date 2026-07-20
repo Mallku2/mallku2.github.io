@@ -46,12 +46,14 @@ body { min-height: 100%; width: 100%; overflow: hidden; }
 
 article h1, article h2, article h3, article h4, article h5, article h6, article p, article ul, article ol, article pre, article hr, article blockquote, article img:only-child { display: block; margin: 32px auto; }
 article li > ul, article li > ol { margin-top: 0; margin-bottom: 0; }
-article .highlight { position: relative; overflow: hidden; margin-left: -16px; margin-right: -16px; margin-top: -16px; margin-bottom: -16px; }
-article .highlight code { display: block; overflow-x: auto; }
-article .highlight > * { padding-left: 16px; padding-right: 16px; }
-article .highlight > * { padding-top: 16px; padding-bottom: 16px; }
-@media screen and (min-width: 680px) { article .highlight { margin-left: -32px; margin-right: -32px; }
-  article .highlight > * { padding-left: 32px; padding-right: 32px; } }
+article .task-list-item { list-style-type: none; }
+article .task-list-item-checkbox { margin: 0 .5em .3em -1.6em; vertical-align: middle; }
+article pre { position: relative; overflow: hidden; margin-left: -16px; margin-right: -16px; margin-top: -16px; margin-bottom: -16px; }
+article pre code { display: block; overflow-x: auto; }
+article pre > code { padding-left: 16px; padding-right: 16px; }
+article pre > code { padding-top: 16px; padding-bottom: 16px; }
+@media screen and (min-width: 680px) { article pre { margin-left: -32px; margin-right: -32px; }
+  article pre > code { padding-left: 32px; padding-right: 32px; } }
 article blockquote { margin-left: 16px; margin-right: 16px; }
 @media screen and (min-width: 680px) { article blockquote { margin-left: 32px; margin-right: 32px; } }
 article blockquote cite { display: block; text-align: right; margin-top: -32px; white-space: nowrap; }
@@ -80,7 +82,11 @@ article h1 + *, article h1 + .aside + *, article h1 + .sidenote + *, article h2 
 
 .credits { margin-left: -0.256em; white-space: nowrap; }
 
-.post-list-item { margin-top: 32px; margin-bottom: 32px; }
+.post-list-item { position: relative; margin-top: 32px; margin-bottom: 32px; }
+
+.post-item-cover { width: 100vw; position: absolute; top: -16px; bottom: -16px; margin-left: 50%; transform: translateX(-50%); background-size: cover; background-position: center; }
+
+.post-item-label { position: relative; }
 
 .post-description { margin-top: 10px; margin-bottom: 10px; }
 
@@ -131,7 +137,7 @@ article ol { list-style-type: decimal; }
 article blockquote { font-style: italic; }
 article code { display: inline-block; padding: 0 0.3em; margin: 0 -0.05em; font-size: 0.875em; font-family: Courier, Monaco, monospace; color: #d32f2f; background: #fff6f6; border-radius: 3px; }
 article pre { color: #6f6f6f; background: #f2f2fa; }
-article pre code { margin: 0; padding: 0; color: inherit; background: none; line-height: 1.6; }
+article pre code { color: inherit; background: none; line-height: 1.6; }
 article mark { color: inherit; background: rgba(255, 255, 0, 0.35); }
 article hr { border: none; border-bottom: 1px solid #f0f0f0; width: 30%; }
 
@@ -179,6 +185,10 @@ article hr { border: none; border-bottom: 1px solid #f0f0f0; width: 30%; }
 
 .post-item-meta { font-variant-caps: all-petite-caps; color: #a2a2a2; }
 
+.post-list-item .post-item-cover { opacity: 0.03; transition: opacity 0.5s ease-out; }
+
+.post-list-item:hover .post-item-cover { opacity: 0.15; transition: opacity 0.5s ease-out; }
+
 .cover-meta { font-family: "Press Start 2P", cursive; font-variant-caps: all-petite-caps; font-size: 0.4em; color: #fff; }
 
 .site-title, .site-title:visited, .site-title:hover { margin-left: 3px; }
@@ -187,3 +197,7 @@ article hr { border: none; border-bottom: 1px solid #f0f0f0; width: 30%; }
 [lang^="zh"] h1 { margin-left: -1px; }
 [lang^="zh"] h2 { margin-left: -2px; }
 [lang^="zh"] h3 { margin-left: -2px; }
+
+.baseline-fix { visibility: hidden; }
+
+.baseline-fix-block { display: inline-block; vertical-align: top; font-size: 0.95em; }

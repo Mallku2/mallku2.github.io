@@ -9,11 +9,11 @@
   <meta name="description" content="Snippets of thoughts.">
 
   
-  <link rel="stylesheet" href="/assets/styles/core.css?v=20240820212204">
-  <link rel="stylesheet" href="/assets/styles/fontello.css?v=20240820212204">
-  <link rel="stylesheet" href="/assets/styles/highlighting/default.css?v=20240820212204">
+  <link rel="stylesheet" href="/assets/styles/core.css?v=20260719222836">
+  <link rel="stylesheet" href="/assets/styles/fontello.css?v=20260719222836">
+  <link rel="stylesheet" href="/assets/styles/highlighting/default.css?v=20260719222836">
 
-  <link rel="canonical" href="/">
+  <link rel="canonical" href="http://localhost:4000/">
   <link rel="alternate" type="application/rss+xml" title="Blog" href="/feed.xml">
 
   
@@ -41,22 +41,36 @@
       <nav class="site-nav">
   
   
+  
   <a class="page-link" href="/about/" >About/CV</a>
+  
+  
   
   <a class="page-link" href="/participation.html" >Scientific committees</a>
   
+  
+  
   <a class="page-link" href="/presentations.html" >Talks</a>
+  
+  
   
   <a class="page-link" href="/publications.html" >Publications</a>
   
+  
+  
   <a class="page-link" href="/teaching.html" >Teaching/Supervision</a>
+  
+  
+  
+  
+  
   
 </nav>
 
 
 <header class="post-header">
   <a class="site-title" href="/">Blog</a>
-  <h1 class="post-title" itemprop="name headline"></h1>
+  <h1 class="post-title baseline-fix" itemprop="name headline"></h1>
 </header>
 
 
@@ -92,6 +106,7 @@
   })();
 </script>
 
+    
   </main>
 
   <footer class="site-footer">
@@ -132,6 +147,20 @@
 </script>
 
 </footer>
+
+
+  <script>
+  (function(elements) {
+    var elements = Array.prototype.slice.call(document.getElementsByClassName('baseline-fix'));
+    for (var i = 0; i != elements.length; i++) {
+      var el = elements[i];
+      el.innerHTML = el.innerHTML.replace(/[\u2000-\u206e⸀-\u2e7e⺀-\u2efe⼀-\u2fde⿰-\u2ffe\u3000-〾\u3040-ゞ゠-ヾ\u3100-\u312e\u3130-ㆎ㆐-㆞ㆠ-\u31be㇀-\u31eeㇰ-ㇾ㈀-㋾㌀-㏾㐀-\u4dbe一-\u9ffe\ua960-\ua97e가-\ud7ae\ud7b0-\ud7fe豈-\ufafe︰-﹎\uff00-￮]|[\ud840-\ud868\ud86a-\ud86c][\udc00-\udfff]|\ud82c[\udc00-\udcfe]|\ud869[\udc00-\udede\udf00-\udfff]|\ud86d[\udc00-\udf3e\udf40-\udfff]|\ud86e[\udc00-\udc1e]|\ud87e[\udc00-\ude1e]/g, function (ch) {
+        return '<span class="baseline-fix-block">' + ch + '<' + '/span>';
+      });
+      el.classList.remove('baseline-fix');
+    }
+  })(Array.prototype.slice.call(document.getElementsByClassName('baseline-fix')));
+</script>
 
 
 </body>
